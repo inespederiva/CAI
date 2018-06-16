@@ -11,24 +11,6 @@ import org.jsoup.select.Elements;
 
 public class GoogleApplicationCollector extends ApplicationCollector {
 
-	// public List<ApplicationPageAnalyser> collect(String rootUrl) {
-	// List<ApplicationPageAnalyser> analysers = new
-	// ArrayList<ApplicationPageAnalyser>();
-	// Document doc;
-	// try {
-	// doc = Jsoup.connect(rootUrl).get();
-	// Elements seemore = doc.select(".see-more");
-	// // Elements seemore = doc.select(".see-more");
-	// // for (Element headline : clusterDetailsTitle) {
-	// // analysers
-	// // .add(new GoogleAppPageAnalyser(headline.absUrl("href")));
-	// // }
-	// analysers.addAll(processSeeMore(seemore));
-	// } catch (IOException e) {
-	// e.printStackTrace();
-	// }
-	// return analysers;
-	// }
 	private String getFilterString() {
 		return ".see-more";
 //		return ".grid-cell-container .grid-cell-row .grid-cell--game";
