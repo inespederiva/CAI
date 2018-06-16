@@ -1,9 +1,7 @@
 package entrega.cai;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -35,12 +33,21 @@ public class Application implements CommandLineRunner {
 		long stop = System.currentTimeMillis();
 		System.out.println(new Date(start));
 		System.out.println(new Date(stop));
-		System.out.println("Duración en milisegundos: "+(stop - start));
-//		En casa duró desde 	Tue Jun 12 18:59:55 ART 2018
-//		hasta Tue Jun 12 21:00:46 ART 2018
-//		Duración en milisegundos: 7251424
-		
-		System.out.println("Duraación de la acción: "+(new SimpleDateFormat("HH:mm:ss:SSS")).format(new Date((stop-start))));
+		System.out.println("Duración en milisegundos: " + (stop - start));
+		// En casa duró desde Tue Jun 12 18:59:55 ART 2018
+		// hasta Tue Jun 12 21:00:46 ART 2018
+		// Duración en milisegundos: 7251424
+
+		// git init
+		// git config --global user.name "Inés Pederiva"
+		// git config --global user.email "ines.pederiva@gmail.com"
+		// git add pom.xml
+		// git remote add origin https://github.com/inespederiva/CAI.git
+		// git remote -v
+		// git add src/.
+		// git commit -m "Primer commit completo"
+		// git push origin master
+
 
 	}
 
@@ -77,37 +84,34 @@ public class Application implements CommandLineRunner {
 	}
 
 	public static void analyse(MobileAppRepository repository) {
+		System.out
+				.println(String
+						.format("Hay un total de %s aplicaciones persistidas en la base de datos",
+								repository.findAll().size()));
+
 		List<MobileApp> mobileAppCol = repository
 				.findByClassification("Everyone");
 		System.out.println(String.format(
 				"Hay un total de %s clasificados como para todos",
 				mobileAppCol.size()));
-		for (MobileApp app : mobileAppCol) {
-			System.out.println(app);
-		}
+//		for (MobileApp app : mobileAppCol) {
+//			System.out.println(app);
+//		}
 		List<MobileApp> viol = repository.findByClassification("Violencia");
 		System.out.println(String.format(
 				"Hay un total de %s clasificados como violencia", viol.size()));
-		for (MobileApp app : viol) {
-			System.out.println(app);
-		}
+//		for (MobileApp app : viol) {
+//			System.out.println(app);
+//		}
 		List<MobileApp> alco = repository
 				.findByClassification("Referencia de alcohol");
 		// List<MobileApp> alco = repository
 		// .findByClassification("Uso de alcohol");
 		System.out.println(String.format(
 				"Hay un total de %s clasificados como alcohol", alco.size()));
-		for (MobileApp app : alco) {
-			System.out.println(app);
-		}
-		
-		try {
-			TimeUnit.SECONDS.sleep(2);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+//		for (MobileApp app : alco) {
+//			System.out.println(app);
+//		}
 	}
 
 }
