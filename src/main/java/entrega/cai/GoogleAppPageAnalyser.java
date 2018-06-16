@@ -23,7 +23,7 @@ public class GoogleAppPageAnalyser extends ApplicationPageAnalyser {
 			doc = Jsoup.connect(getUrl()).get();
 			String appName = doc.select("h1 span").first().html();
 			Elements classifications = doc.select(".i4sPve img");
-			List<String> classif = new ArrayList();
+			List<String> classif = new ArrayList<String>();
 			for (Element cl : classifications) {
 				classif.add(cl.attr("alt"));
 			}
